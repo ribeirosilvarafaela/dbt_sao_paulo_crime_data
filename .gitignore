@@ -4,3 +4,17 @@ dbt_packages/
 logs/
 dbt_internal_packages/
 *.csv
+profiles.yml
+.user.yml
+
+
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+
+# IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

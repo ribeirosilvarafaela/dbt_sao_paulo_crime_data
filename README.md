@@ -1,131 +1,107 @@
-# sp_crime_dbt
+# dbt_sao_paulo_crime_data
 
-Projeto dbt para modelagem de dados de criminalidade do estado de Sao Paulo, com base em arquivos CSV versionados em `seeds/`.
+Projeto de Analytics Engineering com `dbt + BigQuery` para modelagem e padronizacao de um dataset historico de ocorrencias criminais do Estado de Sao Paulo (2022-2025).
 
 ## Objetivo
 
-Este projeto tem como objetivo transformar dados brutos de criminalidade do estado de Sao Paulo em uma base historica confiavel, padronizada e pronta para analise.
+- Aplicar arquitetura em camadas (`bronze -> silver -> gold`)
+- Consolidar dados de varios periodos com schema canonico
+- Reutilizar regras de transformacao com macros
+- Entregar tabelas analiticas prontas para consumo
 
-Na pratica, o pipeline em dbt foi estruturado para:
+## Arquitetura
 
-- consolidar diferentes arquivos e periodos em um historico unico de ocorrencias (2022 a 2025)
-- padronizar nomes de colunas, tipos de dados e valores nulos para garantir consistencia entre fontes
-- organizar os dados por camadas (`bronze`, `silver` e `gold`) para separar ingestao, tratamento e consumo analitico
-- facilitar analises temporais e geograficas (municipio, latitude/longitude, natureza da ocorrencia), apoiando monitoramento, investigacao e tomada de decisao orientada por dados
-- disponibilizar uma base reutilizavel para dashboards, estudos exploratorios e indicadores de seguranca publica
+### Bronze
 
-- `bronze`: padronizacao inicial por periodo de origem
-- `silver`: consolidacao historica e normalizacao de colunas
-- `gold`: camada analitica final (estrutura pronta, sem modelos ativos no momento)
+- Espelhamento das fontes (seeds)
+- Padronizacao inicial
+- Materializacao: `view`
 
-## Estrutura do projeto
+### Silver
 
-- `models/bronze/`: modelos de ingestao a partir de seeds (`view`)
-- `models/silver/`: modelos de consolidacao historica (`view` e `table`)
-- `models/gold/`: reservado para marts analiticos
-- `seeds/`: CSVs de entrada e `seeds_schema.yml`
-- `macros/`: macros utilitarias (`normalize_null_and_cast`, `generate_schema_name`)
-- `tests/`: pasta para testes SQL customizados
-- `snapshots/` e `analyses/`: estrutura padrao dbt
+- Consolidacao historica dos anos 2022 a 2025
+- Normalizacao de campos divergentes entre periodos
+- Casting consistente e tratamento de datas
+- Materializacao: `table`
 
-## Materializacao e schemas
+### Gold
 
-Configuracao em `dbt_project.yml`:
+- Agregacoes e tabelas finais para analise
+- Indicadores por municipio, periodo e localizacao
+- Materializacao: `table`
 
-- `bronze` -> `view`
-- `silver` -> `table`
-- `gold` -> `table`
+## Dependencias
 
-Nos objetos criados, o schema final segue a macro `generate_schema_name`:
+Dependencias principais do projeto (arquivo `requirements.txt`):
 
-- schema base do target + sufixo da camada
-- exemplo: se `target.schema = sp_crime`, uma tabela de `silver` sera criada em `sp_crime_silver`
+- `dbt-bigquery==1.11.0`
+- `pandas==2.3.3`
+- `pandas-gbq==0.33.0`
 
-## Principais modelos atuais
+## Versao do Python
 
-Em `silver`:
+- Recomendado: `Python 3.13` (ou `3.12`)
 
-- `int_crime_hist_unified`: unifica periodos 2022-2025 da camada bronze
-- `sl_crime_hist`: tabela historica consolidada para consumo analitico
+## Configuracao da conexao BigQuery (dbt)
 
-Em `bronze`:
+Crie um arquivo `profiles.yml` para armazenamento de configuracoes no BigQuery
+Para detalhes,  consulte:
+https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup
 
-- modelos por semestre/ano (`br_crime_2022_*` ate `br_crime_2025_*`)
-- `br_populacao_municipios`
 
-## Pre-requisitos
+## Comandos uteis
 
-- Python 3.10+
-- `dbt-core` e adapter do seu warehouse (ex.: `dbt-bigquery`)
-- profile `sp_crime_dbt` configurado em `profiles.yml`
-
-## Como executar
-
-1. Validar conexao:
-
+1. Verifique a conexao e o profile:
 ```bash
 dbt debug
 ```
 
-2. Carregar seeds:
+2. Instale as dependencias do projeto:
+```bash
+dbt deps
+```
 
+3. Carregue as seeds:
 ```bash
 dbt seed
 ```
 
-3. Executar modelos:
-
+4. Execute os modelos:
 ```bash
 dbt run
 ```
 
-4. Executar testes:
-
+5. Execute os testes (opcional):
 ```bash
 dbt test
 ```
 
-5. Pipeline completa:
+## Estrutura do projeto
 
-```bash
-dbt build
+```text
+models/
+  bronze/
+  silver/
+  gold/
+
+seeds/
+  seeds_schema.yml
+
+macros/
+  normalize_null_and_cast.sql
+  generate_schema_name.sql
 ```
 
-## Execucao por camada
+## Observacoes
 
-```bash
-dbt run --select models/bronze
-dbt run --select models/silver
-dbt run --select models/gold
-```
+- O projeto usa o profile `sp_crime_dbt` (definido em `dbt_project.yml`).
+- As seeds sao materializadas no schema `sp_crime_landing`.
+- A separacao fisica por camada pode ser controlada pela macro `generate_schema_name`.
 
-## Documentacao
+## Fonte dos Dados
 
-```bash
-dbt docs generate
-dbt docs serve
-```
+Os dados utilizados neste projeto foram extraidos do portal oficial da Secretaria da Seguranca Publica do Estado de Sao Paulo (SSP-SP):
 
-## Limpeza de artefatos
+https://www.ssp.sp.gov.br/estatistica/consultas
 
-Limpa artefatos padrao configurados no projeto (`target/` e `dbt_packages/`):
-
-```bash
-dbt clean
-```
-
-Para remover tambem logs locais de execucao:
-
-```bash
-rm -rf logs
-```
-
-No Windows (PowerShell):
-
-```powershell
-if (Test-Path logs) { cmd /c "rd /s /q logs" }
-```
-
-## Referencias
-
-- dbt docs: https://docs.getdbt.com/docs/introduction
+Os arquivos disponibilizados publicamente pela SSP-SP contem estatisticas de ocorrencias criminais por municipio e periodo. Neste projeto, os dados foram organizados como seeds para fins de modelagem e demonstracao tecnica.
