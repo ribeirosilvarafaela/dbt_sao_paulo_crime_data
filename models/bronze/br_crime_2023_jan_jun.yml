@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: br_crime_2023_jan_jun
+    description: "Camada bronze com ocorrencias criminais de janeiro a junho de 2023, padronizadas a partir da landing."
+    columns:
+      - name: DATA_REGISTRO
+        description: "Data e hora de registro do boletim, convertida para timestamp."
+      - name: DATA_OCORRENCIA_BO
+        description: "Data e hora da ocorrencia, convertida para timestamp."
+      - name: NUMERO_LOGRADOURO
+        description: "Numero do logradouro convertido para inteiro."
+      - name: MES_ESTATISTICA
+        description: "Mes de referencia estatistica convertido para inteiro."
+      - name: ANO_ESTATISTICA
+        description: "Ano de referencia estatistica convertido para inteiro."
+      - name: LATITUDE
+        description: "Latitude do local da ocorrencia convertida para float."
+      - name: LONGITUDE
+        description: "Longitude do local da ocorrencia convertida para float."
+      - name: periodo_ref
+        description: "Identificador do periodo da carga bronze."
+      - name: load_ts
+        description: "Timestamp de carga do registro na camada bronze."

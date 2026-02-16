@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: gd_ocorrencias_anuais_municipio
+    description: "Camada gold com agregacao anual de ocorrencias por municipio, combinada com populacao."
+    columns:
+      - name: municipio
+        description: "Municipio de referencia da agregacao anual."
+        tests:
+          - not_null
+      - name: ano
+        description: "Ano de referencia da populacao e das ocorrencias."
+        tests:
+          - not_null
+      - name: ocorrencias
+        description: "Quantidade de ocorrencias registradas no municipio no ano."
+      - name: populacao
+        description: "Populacao estimada do municipio no ano."

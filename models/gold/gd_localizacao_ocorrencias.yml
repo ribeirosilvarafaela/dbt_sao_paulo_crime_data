@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: gd_localizacao_ocorrencias
+    description: "Camada gold com localizacao das ocorrencias para analises geograficas."
+    columns:
+      - name: municipio
+        description: "Municipio da ocorrencia."
+        tests:
+          - not_null
+      - name: dt_ocorrencia
+        description: "Data da ocorrencia."
+      - name: bairro
+        description: "Bairro da ocorrencia."
+      - name: natureza_apurada
+        description: "Natureza apurada da ocorrencia."
+      - name: latitude
+        description: "Latitude geografica da ocorrencia."
+        tests:
+          - not_null
+      - name: longitude
+        description: "Longitude geografica da ocorrencia."
+        tests:
+          - not_null
+      - name: coordenadas
+        description: "Coordenadas geograficas da ocorrencia no formato 'latitude,longitude'."

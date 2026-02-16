@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: sl_ocorrencias_historico
+    description: "Tabela historica consolidada de ocorrencias criminais do estado de Sao Paulo (2022-2025), unificando os periodos da camada bronze."
+    columns:
+      - name: municipio
+        description: "Municipio padronizado em caixa alta."
+        tests:
+          - not_null
+      - name: dt_registro
+        description: "Data de registro/comunicacao do boletim."
+      - name: dt_ocorrencia
+        description: "Data da ocorrencia do fato."
+      - name: periodo
+        description: "Periodo da ocorrencia informado na origem."
+      - name: descr_tipo_local
+        description: "Descricao do tipo/subtipo do local da ocorrencia."
+      - name: rubrica
+        description: "Classificacao principal da ocorrencia."
+      - name: descr_conduta
+        description: "Descricao textual da conduta associada ao fato."
+      - name: natureza_apurada
+        description: "Natureza apurada da ocorrencia."
+      - name: bairro
+        description: "Bairro padronizado em caixa alta."
+      - name: logradouro
+        description: "Logradouro padronizado em caixa alta."
+      - name: latitude
+        description: "Latitude geografica da ocorrencia."
+      - name: longitude
+        description: "Longitude geografica da ocorrencia."
+      - name: ano_referencia
+        description: "Ano  de referencia da ocorrencia."
+        tests:
+          - not_null
+      - name: mes_referencia
+        description: "Mes de referencia da ocorrencia."
+        tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                quote: false
+      - name: periodo_ref
+        description: "Identificador do periodo de ingestao na camada bronze."
+      - name: source_file
+        description: "Arquivo de origem do seed usado para rastreabilidade."
+      - name: load_ts
+        description: "Timestamp de carga do registro na camada silver."

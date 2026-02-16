@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: gd_ocorrencias_mensais_bairro
+    description: "Camada gold com agregacao mensal de ocorrencias por municipio, natureza e bairro."
+    columns:
+      - name: municipio
+        description: "Municipio de referencia da agregacao."
+        tests:
+          - not_null
+      - name: mes
+        description: "Mes de referencia da agregacao (primeiro dia do mes)."
+        tests:
+          - not_null
+      - name: natureza_apurada
+        description: "Natureza apurada da ocorrencia."
+      - name: bairro
+        description: "Bairro de referencia da agregacao."
+      - name: total
+        description: "Quantidade total de ocorrencias no agrupamento."
+        tests:
+          - not_null

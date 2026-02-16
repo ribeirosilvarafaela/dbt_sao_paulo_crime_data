@@ -1,0 +1,250 @@
+version: 2
+
+seeds:
+  - name: spdadoscriminais_2022__jan_jun_2022
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        CIDADE: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_COMUNICACAO_BO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESCR_PERIODO: string
+        DESCR_TIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+
+  - name: spdadoscriminais_2022__jul_dez_2022
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        CIDADE: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_COMUNICACAO_BO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESCR_PERIODO: string
+        DESCR_TIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+
+  - name: spdadoscriminais_2023__jan_jun_2023
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        NOME_MUNICIPIO: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_REGISTRO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESC_PERIODO: string
+        DESCR_SUBTIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+
+  - name: spdadoscriminais_2023__jul_dez_2023
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        NOME_MUNICIPIO: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_REGISTRO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESC_PERIODO: string
+        DESCR_SUBTIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+
+  - name: spdadoscriminais_2024__jan_jun_2024
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        NOME_MUNICIPIO: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_REGISTRO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESC_PERIODO: string
+        DESCR_SUBTIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+
+  - name: spdadoscriminais_2024__jul_dez_2024
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        NOME_MUNICIPIO: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_REGISTRO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESC_PERIODO: string
+        DESCR_SUBTIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+
+  - name: spdadoscriminais_2025__jan_a_jun_2025
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        NOME_MUNICIPIO: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_REGISTRO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESC_PERIODO: string
+        DESCR_TIPOLOCAL: string
+        DESCR_SUBTIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+        CMD: string
+        BTL: string
+        CIA: string
+        
+  - name: spdadoscriminais_2025__jul_a_dez_2025
+    config:
+      column_types:
+        NOME_DEPARTAMENTO: string
+        NOME_SECCIONAL: string
+        NOME_DELEGACIA: string
+        NOME_MUNICIPIO: string
+        NUM_BO: string
+        ANO_BO: string
+        DATA_REGISTRO: string
+        DATA_OCORRENCIA_BO: string
+        HORA_OCORRENCIA_BO: string
+        DESC_PERIODO: string
+        DESCR_TIPOLOCAL: string
+        DESCR_SUBTIPOLOCAL: string
+        BAIRRO: string
+        LOGRADOURO: string
+        NUMERO_LOGRADOURO: string
+        LATITUDE: string
+        LONGITUDE: string
+        NOME_DELEGACIA_CIRCUNSCRICAO: string
+        NOME_DEPARTAMENTO_CIRCUNSCRICAO: string
+        NOME_SECCIONAL_CIRCUNSCRICAO: string
+        NOME_MUNICIPIO_CIRCUNSCRICAO: string
+        RUBRICA: string
+        DESCR_CONDUTA: string
+        NATUREZA_APURADA: string
+        MES_ESTATISTICA: string
+        ANO_ESTATISTICA: string
+        CMD: string
+        BTL: string
+        CIA: string
+
+  - name: spdadoscriminais_populacao_municipios
+    config:
+      column_types:
+        ano: integer
+        id_municipio: string
+        nome_municipio: string
+        populacao: integer

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: gd_ocorrencias_diarias_municipio
+    description: "Camada gold com agregacao diaria de ocorrencias por municipio (materializada como gd_crime_daily_by_city)."
+    columns:
+      - name: municipio
+        description: "Municipio de referencia da agregacao."
+        tests:
+          - not_null
+      - name: dt_ocorrencia
+        description: "Data de ocorrencia usada na agregacao diaria."
+        tests:
+          - not_null
+      - name: total
+        description: "Quantidade total de ocorrencias no dia e municipio."
+        tests:
+          - not_null

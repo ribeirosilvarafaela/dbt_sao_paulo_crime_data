@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: br_populacao_municipios
+    description: "Camada bronze com dados de populacao municipal carregados da landing."
+    columns:
+      - name: ano
+        description: "Ano de referencia da populacao."
+      - name: id_municipio
+        description: "Identificador do municipio."
+      - name: nome_municipio
+        description: "Nome do municipio."
+      - name: populacao
+        description: "Populacao estimada do municipio no ano de referencia."
+      - name: load_ts
+        description: "Timestamp de carga do registro na camada bronze."

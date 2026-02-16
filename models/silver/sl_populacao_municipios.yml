@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: sl_populacao_municipios
+    description: "Camada silver com populacao municipal padronizada para analises por municipio e ano."
+    columns:
+      - name: ano
+        description: "Ano de referencia da populacao."
+        tests:
+          - not_null
+      - name: municipio
+        description: "Nome do municipio padronizado em caixa alta."
+        tests:
+          - not_null
+      - name: populacao
+        description: "Populacao estimada do municipio no ano de referencia."
+        tests:
+          - not_null
