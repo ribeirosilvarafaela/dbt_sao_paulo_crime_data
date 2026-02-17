@@ -1,7 +1,7 @@
 {{ config(
   materialized='table',
   schema='silver',
-  partition_by= {"field": "dt_ocorrencia", "data_type": "date", "granularity": "month"},
+  partition_by= {"field": "data_referencia", "data_type": "date", "granularity": "month"},
   cluster_by=["municipio"]
   ) }}
 
@@ -21,6 +21,7 @@ select
   periodo_ref,
   source_file,
   current_timestamp() as load_ts,
+  data_referencia,
   ano_referencia,
   mes_referencia
 from {{ ref('int_ocorrencia_hist_unificado') }}

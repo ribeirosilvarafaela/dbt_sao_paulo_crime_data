@@ -19,7 +19,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2022) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM coalesce(DATA_OCORRENCIA_BO, DATA_COMUNICACAO_BO)) as mes_referencia,
+    COALESCE(DATA_OCORRENCIA_BO, DATA_COMUNICACAO_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
@@ -41,7 +42,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2022) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM COALESCE(DATA_OCORRENCIA_BO, DATA_COMUNICACAO_BO)) as mes_referencia,
+    COALESCE(DATA_OCORRENCIA_BO, DATA_COMUNICACAO_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
@@ -63,7 +65,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2023) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO)) as mes_referencia,
+    COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
@@ -85,7 +88,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2023) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO)) as mes_referencia,
+    COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
@@ -107,7 +111,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2024) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO)) as mes_referencia,
+    COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
@@ -129,7 +134,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2024) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO)) as mes_referencia,
+    COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
@@ -151,7 +157,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2025) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO)) as mes_referencia,
+    COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
@@ -173,7 +180,8 @@ with base as (
     LATITUDE as latitude,
     LONGITUDE as longitude,
     COALESCE(ANO_ESTATISTICA, 2025) as ano_referencia,
-    EXTRACT(MONTH FROM DATA_OCORRENCIA_BO) as mes_referencia,
+    EXTRACT(MONTH FROM COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO)) as mes_referencia,
+    COALESCE(DATA_REGISTRO, DATA_OCORRENCIA_BO) as data_referencia,
     periodo_ref,
     source_file,
     load_ts as load_ts_bronze
