@@ -11,6 +11,18 @@ Projeto de Analytics Engineering com `dbt + BigQuery` para modelagem e padroniza
 
 ## Arquitetura
 
+```mermaid
+flowchart LR
+    A[SSP-SP CSVs\nseeds/] --> B[Bronze\nPadronizacao inicial\nmaterialized: view]
+    B --> C[Silver\nConsolidacao 2022-2025\nnormalizacao + casts\nmaterialized: table]
+    C --> D[Gold\nAgregacoes e indicadores\nmaterialized: table]
+    D --> E[Consumo analitico\nBI / consultas]
+
+    M[Macros\nnormalize_null_and_cast\ngenerate_schema_name] -.aplicadas em.- B
+    M -.aplicadas em.- C
+    M -.aplicadas em.- D
+```
+
 ### Bronze
 
 - Espelhamento das fontes (seeds)
