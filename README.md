@@ -16,11 +16,25 @@ Projeto de Analytics Engineering com `dbt + BigQuery` para modelagem e padroniza
 title: Arquitetura dbt Sao Paulo Crime
 ---
 flowchart LR
-    csv[Arquivos CSV SSP-SP] --> seed[Seeds]
-    seed --> bronze[Bronze]
-    bronze --> silver[Silver]
-    silver --> gold[Gold]
-    gold --> consumo[Consumo Analitico]
+    A@{ shape: lin-cyl, label: "Arquivos CSV SSP-SP" } --> B[Seeds]
+    B --> C[Bronze]
+    C --> D[Silver]
+    D --> E[Gold]
+    E --> F[Consumo Analitico]
+
+    classDef arquivos fill:#e0f2fe,stroke:#0369a1,color:#0c4a6e,stroke-width:1px;
+    classDef seeds fill:#f3e8ff,stroke:#7e22ce,color:#4c1d95,stroke-width:1px;
+    classDef bronze fill:#ffedd5,stroke:#c2410c,color:#7c2d12,stroke-width:1px;
+    classDef silver fill:#f3f4f6,stroke:#4b5563,color:#111827,stroke-width:1px;
+    classDef gold fill:#fef3c7,stroke:#b45309,color:#78350f,stroke-width:1px;
+    classDef consumo fill:#dcfce7,stroke:#15803d,color:#14532d,stroke-width:1px;
+
+    class A arquivos;
+    class B seeds;
+    class C bronze;
+    class D silver;
+    class E gold;
+    class F consumo;
 ```
 
 ### Bronze
