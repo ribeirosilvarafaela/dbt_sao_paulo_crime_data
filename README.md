@@ -12,28 +12,15 @@ Projeto de Analytics Engineering com `dbt + BigQuery` para modelagem e padroniza
 ## Arquitetura
 
 ```mermaid
-architecture-beta
-    group origem(logos:google-cloud)[Fonte_SSP_SP]
-    group transformacao(simple-icons:dbt)[Projeto_dbt]
-    group destino(logos:google-cloud)[BigQuery]
-
-    service csv(logos:google-drive)[Arquivos_CSV] in origem
-    service seed(vscode-icons:file-type-sql)[Seeds_dbt] in transformacao
-    service bronze(vscode-icons:file-type-sql)[Camada_Bronze_view] in transformacao
-    service silver(vscode-icons:file-type-sql)[Camada_Silver_table] in transformacao
-    service gold(vscode-icons:file-type-sql)[Camada_Gold_table] in transformacao
-    service macros(logos:python)[Macros_dbt] in transformacao
-    service consumo(logos:google-cloud)[Consumo_Analitico] in destino
-
-    csv:R --> L:seed
-    seed:R --> L:bronze
-    bronze:R --> L:silver
-    silver:R --> L:gold
-    gold:R --> L:consumo
-
-    macros:T --> B:bronze
-    macros:R --> L:silver
-    macros:B --> T:gold
+---
+title: Arquitetura dbt Sao Paulo Crime
+---
+flowchart LR
+    csv[Arquivos CSV SSP-SP] --> seed[Seeds]
+    seed --> bronze[Bronze]
+    bronze --> silver[Silver]
+    silver --> gold[Gold]
+    gold --> consumo[Consumo Analitico]
 ```
 
 ### Bronze
