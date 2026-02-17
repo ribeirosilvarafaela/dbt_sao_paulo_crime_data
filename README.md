@@ -12,15 +12,28 @@ Projeto de Analytics Engineering com `dbt + BigQuery` para modelagem e padroniza
 ## Arquitetura
 
 ```mermaid
-flowchart LR
-    A[SSP-SP CSVs\nseeds/] --> B[Bronze\nPadronizacao inicial\nmaterialized: view]
-    B --> C[Silver\nConsolidacao 2022-2025\nnormalizacao + casts\nmaterialized: table]
-    C --> D[Gold\nAgregacoes e indicadores\nmaterialized: table]
-    D --> E[Consumo analitico\nBI / consultas]
+architecture-beta
+    group origem(logos:google-cloud)[Fonte_SSP_SP]
+    group transformacao(simple-icons:dbt)[Projeto_dbt]
+    group destino(logos:google-cloud)[BigQuery]
 
-    M[Macros\nnormalize_null_and_cast\ngenerate_schema_name] -.aplicadas em.- B
-    M -.aplicadas em.- C
-    M -.aplicadas em.- D
+    service csv(logos:google-drive)[Arquivos_CSV] in origem
+    service seed(vscode-icons:file-type-sql)[Seeds_dbt] in transformacao
+    service bronze(vscode-icons:file-type-sql)[Camada_Bronze_view] in transformacao
+    service silver(vscode-icons:file-type-sql)[Camada_Silver_table] in transformacao
+    service gold(vscode-icons:file-type-sql)[Camada_Gold_table] in transformacao
+    service macros(logos:python)[Macros_dbt] in transformacao
+    service consumo(logos:google-cloud)[Consumo_Analitico] in destino
+
+    csv:R --> L:seed
+    seed:R --> L:bronze
+    bronze:R --> L:silver
+    silver:R --> L:gold
+    gold:R --> L:consumo
+
+    macros:T --> B:bronze
+    macros:R --> L:silver
+    macros:B --> T:gold
 ```
 
 ### Bronze
