@@ -1,0 +1,32 @@
+version: 2
+
+macros:
+  - name: norm_txt
+    description: "Padroniza texto para comparacao e agregacao, removendo acentos, aplicando caixa alta e tratando nulos como INDISPONIVEL."
+    arguments:
+      - name: column_name
+        type: string
+        description: "Expressao SQL da coluna textual a ser normalizada."
+
+  - name: normalize_null_and_cast
+    description: "Converte strings vazias ou 'NULL' em valor nulo e aplica cast seguro para o tipo de destino."
+    arguments:
+      - name: column_name
+        type: string
+        description: "Expressao SQL da coluna de origem."
+      - name: target_type
+        type: string
+        description: "Tipo SQL de destino para o safe_cast."
+
+  - name: default__generate_schema_name
+    description: "Define o nome final do schema dos objetos dbt concatenando o schema padrao do target com o custom schema informado."
+    arguments:
+      - name: custom_schema_name
+        type: string
+        description: "Schema customizado definido no modelo/seed, quando aplicavel."
+      - name: node
+        type: object
+        description: "Objeto interno do dbt com metadados do recurso em compilacao."
+
+  - name: _bigquery__get_extended_catalog_sql
+    description: "Override do SQL de catalogo para BigQuery com tratamento de metadados nulos e suporte a estatisticas de particionamento/clustering."
