@@ -1,7 +1,9 @@
 {{
   config(
-    materialized = 'table',
-    schema = 'gold'
+    materialized = 'incremental',
+    schema = 'gold',
+    partition_by={"field": "mes", "data_type": "date", "granularity": "month"},
+    cluster_by=["municipio"]
   )
 }}
 

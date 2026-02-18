@@ -8,7 +8,7 @@ models:
         description: "Municipio de referencia da agregacao anual."
         tests:
           - not_null
-      - name: ano
+      - name: ano_referencia
         description: "Ano de referencia da populacao e das ocorrencias."
         tests:
           - not_null

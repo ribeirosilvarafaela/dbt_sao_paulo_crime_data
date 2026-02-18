@@ -4,6 +4,10 @@ models:
   - name: gd_localizacao_ocorrencias
     description: "Camada gold com localizacao das ocorrencias para analises geograficas."
     columns:
+      - name: pais
+        description: "Pais da ocorrencia."
+      - name: estado
+        description: "Estado da ocorrencia."
       - name: municipio
         description: "Municipio da ocorrencia."
         tests:

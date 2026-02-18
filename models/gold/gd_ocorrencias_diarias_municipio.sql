@@ -1,6 +1,7 @@
 {{ config(
-  materialized='table',
+  materialized='incremental',
   alias='gd_ocorrencias_diarias_municipio',
+  partition_by={"field": "dt_ocorrencia", "data_type": "date", "granularity": "month"},
   schema='gold'
   ) }}
 

@@ -1,9 +1,13 @@
 {{ config(
-  materialized='table',
-  schema='gold'
+  materialized='incremental',
+  schema='gold',
+  partition_by={"field": "dt_ocorrencia", "data_type": "date", "granularity": "month"},
+  cluster_by=["municipio"]
   ) }}
 
 Select
+  'Brasil' as pais,
+  'SP' as estado,
   municipio,
   dt_ocorrencia,
   bairro,
