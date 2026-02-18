@@ -142,12 +142,22 @@ macros/
 * As seeds são materializadas no schema `sp_crime_landing`.
 * A separação física por camada pode ser controlada pela macro `generate_schema_name`.
 
----
-
 ## Fonte dos Dados
+
+### Ocorrências (SSP-SP)
 
 Os dados utilizados neste projeto foram extraídos do portal oficial da Secretaria da Segurança Pública do Estado de São Paulo (SSP-SP):
 
-[https://www.ssp.sp.gov.br/estatistica/consultas](https://www.ssp.sp.gov.br/estatistica/consultas)
+* [https://www.ssp.sp.gov.br/estatistica/consultas](https://www.ssp.sp.gov.br/estatistica/consultas)
 
-Os arquivos disponibilizados publicamente pela SSP-SP contêm estatísticas de ocorrências criminais por município e período. Neste projeto, os dados foram organizados como seeds para fins de modelagem e demonstração técnica.
+Os arquivos disponibilizados publicamente pela SSP-SP contêm estatísticas de ocorrências por município e período. Neste projeto, os dados foram organizados como *seeds* para fins de modelagem e demonstração técnica.
+
+### População (IBGE)
+
+Para permitir análises normalizadas pela população (ex.: taxas por 100 mil habitantes), o projeto também referencia as **estimativas de população** do Instituto Brasileiro de Geografia e Estatística (IBGE), com data de referência em **1º de julho** e cobertura temporal **1991–2025**.
+
+A tabela tratada pode ser acessada via Base dos Dados:
+
+* [População Brasileira](https://basedosdados.org/dataset/d30222ad-7a5c-4778-a1ec-f0785371d1ca?table=2440d076-8934-471f-8cbe-51faae387c66)
+
+
