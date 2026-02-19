@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: gd_ocorrencias_mensais_geogrid
+    description: "Camada gold com agregacao mensal de ocorrencias por municipio, natureza e bairro, com coordenadas geograficas para analises espaciais."
+    columns:
+      - name: municipio
+        description: "Municipio de referencia da agregacao."
+        tests:
+          - not_null
+      - name: mes
+        description: "Mes de referencia da agregacao (primeiro dia do mes)."
+        tests:
+          - not_null
+      - name: natureza_apurada
+        description: "Natureza apurada da ocorrencia."
+      - name: bairro
+        description: "Bairro de referencia da agregacao."
+      - name: latitude
+        description: "Latitude geografica do centroide do bairro."
+        tests:
+          - not_null
+      - name: longitude
+        description: "Longitude geografica do centroide do bairro."
+        tests:
+          - not_null
+      - name: total
+        description: "Quantidade total de ocorrencias no agrupamento."
+        tests:
+          - not_null
