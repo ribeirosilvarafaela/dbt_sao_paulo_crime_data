@@ -18,3 +18,4 @@ Select
 From {{ ref('sl_ocorrencias_historico') }}
 Where latitude is not null
 and longitude is not null
+and dt_ocorrencia between '2022-01-01' and '2025-12-31'  

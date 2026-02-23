@@ -11,7 +11,7 @@ models:
       - name: dt_registro
         description: "Data de registro/comunicacao do boletim."
       - name: dt_ocorrencia
-        description: "Data da ocorrencia do fato."
+        description: "Data da ocorrencia do fato, priorizando a data de ocorrencia informada na origem e utilizando a data de registro como fallback quando a data de ocorrencia nao esta disponivel."
       - name: periodo
         description: "Periodo da ocorrencia informado na origem."
       - name: descr_tipo_local

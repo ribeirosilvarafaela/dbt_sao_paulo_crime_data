@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: gd_ocorrencias_mensais_municipio
+    description: "Camada gold com agregacao mensal de ocorrencias por municipio, incluindo comparativos de taxa por 100 mil habitantes contra estado e cluster populacional."
+    columns:
+      - name: municipio
+        description: "Municipio de referencia da agregacao."
+        tests:
+          - not_null
+      - name: ano
+        description: "Ano de referencia da agregacao mensal."
+        tests:
+          - not_null
+      - name: mes_referencia
+        description: "Mes numerico de referencia da agregacao (1-12)."
+        tests:
+          - not_null
+      - name: mes
+        description: "Mes de referencia da agregacao (primeiro dia do mes)."
+        tests:
+          - not_null
+      - name: ocorrencias
+        description: "Quantidade mensal de ocorrencias no municipio."
+        tests:
+          - not_null
+      - name: populacao
+        description: "Populacao estimada do municipio no ano correspondente."
+        tests:
+          - not_null
+      - name: cluster_populacao
+        description: "Faixa populacional do municipio no ano de referencia."
+      - name: ocorrencias_estaduais
+        description: "Total mensal de ocorrencias no estado."
+      - name: populacao_estadual
+        description: "Populacao total do estado no ano correspondente."
+      - name: taxa_estadual_100k
+        description: "Taxa estadual mensal de ocorrencias por 100 mil habitantes."
+      - name: ocorrencias_cluster
+        description: "Total mensal de ocorrencias no cluster populacional."
+      - name: populacao_cluster
+        description: "Populacao total mensal do cluster populacional."
+      - name: taxa_cluster_100k
+        description: "Taxa mensal de ocorrencias por 100 mil habitantes do cluster populacional."
+      - name: taxa_municipio_100k
+        description: "Taxa mensal de ocorrencias do municipio por 100 mil habitantes."
+      - name: desvio_vs_estado_pct
+        description: "Desvio percentual da taxa municipal em relacao a taxa estadual no mesmo mes."
+      - name: desvio_vs_cluster_pct
+        description: "Desvio percentual da taxa municipal em relacao a taxa do cluster no mesmo mes."
+      - name: taxa_municipio_mes_anterior
+        description: "Taxa municipal por 100 mil habitantes no mes anterior."
+      - name: taxa_estado_mes_anterior
+        description: "Taxa estadual por 100 mil habitantes no mes anterior."

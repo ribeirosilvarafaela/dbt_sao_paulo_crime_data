@@ -8,7 +8,7 @@
 select
   municipio,
   dt_registro,
-  dt_ocorrencia,
+  coalesce(dt_ocorrencia, dt_registro) as dt_ocorrencia,
   periodo,
   descr_tipo_local,
   rubrica,

@@ -2,17 +2,49 @@ version: 2
 
 models:
   - name: gd_ocorrencias_anuais_municipio
-    description: "Camada gold com agregacao anual de ocorrencias por municipio, combinada com populacao."
+    description: "Camada gold com agregacao anual de ocorrencias por municipio, incluindo comparativos de taxa por 100 mil habitantes contra estado e cluster populacional."
     columns:
       - name: municipio
-        description: "Municipio de referencia da agregacao anual."
+        description: "Municipio de referencia da agregacao."
         tests:
           - not_null
-      - name: ano_referencia
-        description: "Ano de referencia da populacao e das ocorrencias."
+      - name: ano
+        description: "Ano de referencia da agregacao."
+        tests:
+          - not_null
+      - name: periodo_ano
+        description: "Data tecnica do periodo anual (primeiro dia do ano), usada para particionamento incremental."
         tests:
           - not_null
       - name: ocorrencias
-        description: "Quantidade de ocorrencias registradas no municipio no ano."
+        description: "Quantidade anual de ocorrencias no municipio."
+        tests:
+          - not_null
       - name: populacao
         description: "Populacao estimada do municipio no ano."
+        tests:
+          - not_null
+      - name: cluster_populacao
+        description: "Faixa populacional do municipio no ano de referencia."
+      - name: ocorrencias_estaduais
+        description: "Total anual de ocorrencias no estado."
+      - name: populacao_estadual
+        description: "Populacao total do estado no ano."
+      - name: taxa_estadual_100k
+        description: "Taxa estadual anual de ocorrencias por 100 mil habitantes."
+      - name: ocorrencias_cluster
+        description: "Total anual de ocorrencias no cluster populacional."
+      - name: populacao_cluster
+        description: "Populacao total anual do cluster populacional."
+      - name: taxa_cluster_100k
+        description: "Taxa anual de ocorrencias por 100 mil habitantes do cluster populacional."
+      - name: taxa_municipio_100k
+        description: "Taxa anual de ocorrencias do municipio por 100 mil habitantes."
+      - name: desvio_vs_estado_pct
+        description: "Desvio percentual da taxa municipal em relacao a taxa estadual no mesmo ano."
+      - name: desvio_vs_cluster_pct
+        description: "Desvio percentual da taxa municipal em relacao a taxa do cluster no mesmo ano."
+      - name: taxa_municipio_ano_anterior
+        description: "Taxa municipal por 100 mil habitantes no ano anterior."
+      - name: taxa_estado_ano_anterior
+        description: "Taxa estadual por 100 mil habitantes no ano anterior."

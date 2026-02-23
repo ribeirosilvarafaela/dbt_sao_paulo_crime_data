@@ -20,3 +20,7 @@ models:
         description: "Quantidade total de ocorrencias no agrupamento."
         tests:
           - not_null
+      - name: cluster_populacao
+        description: "Faixa populacional do municipio no ano de referencia da ocorrencia, usada para comparativos de taxa por habitante."
+      - name: populacao_ano
+        description: "Populacao do municipio no ano de referencia da ocorrencia, usada para calculo de taxas de ocorrencia por habitante."
